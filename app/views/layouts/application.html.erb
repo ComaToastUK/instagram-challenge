@@ -16,10 +16,14 @@
           <span class="icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
-          <ul class="nav navbar-nav navbar-left">
-          <li class="active"><%= link_to 'New Post', new_post_path %></li>
-          <li class="disabled"><%= link_to 'Login', '#' %></li>
-          <li class="disabled"><%= link_to 'Sign up', '#' %></li>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="active"><%= link_to 'New Post', new_post_path %></li>
+              <li class = "active"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li class="active"><%= link_to 'Login', new_user_session_path %></li>
+              <li class="active"><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>

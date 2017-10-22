@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @posts = Post.all
@@ -28,11 +29,13 @@ class PostsController < ApplicationController
   def update
 
     @post.update(post_params)
+    flash[:success] = "Your post was updated"
     redirect_to(post_path(@post))
   end
 
   def destroy
     @post.destroy
+    flash[:success] = "Your post was deleted"
     redirect_to posts_path
   end
 
