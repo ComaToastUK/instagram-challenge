@@ -13,7 +13,10 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
+gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -29,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -39,6 +42,15 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec'
+end
+
+group :test do
+  gem 'rubocop'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
 end
 
 group :development do
